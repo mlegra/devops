@@ -1,4 +1,5 @@
 #!/bin/bash
+ssh oracle@192.168.180.129
 export ORACLE_HOME=/u01/oracle/product/19.3/dbhome_1/
 export PATH=/home/oracle/.local/bin:/home/oracle/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/oracle/.local/bin:/home/oracle/bin:/u01/oracle/product/19.3/dbhome_1/bin
 sqlplus test/test@PDB_ORACLE19 << !
