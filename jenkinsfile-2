@@ -23,10 +23,10 @@ pipeline {
                      obj.Meth1()    
                      }  
 
-                  def cant = 0
+                  /*def cant = 0
                   for(cant;cant < params.Cant;cant++) { 
                    echo params.Cant
-                  }
+                  }*/
                   
                 }
             }
