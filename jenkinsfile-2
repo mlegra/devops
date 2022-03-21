@@ -7,8 +7,10 @@ pipeline {
         stage('Example') {
             steps {
                 echo "${params.Greeting} World!"
+                script {
                 def obj = load "task1.groovy"
                         obj.Meth1()
+                }
             }
         }
     }
