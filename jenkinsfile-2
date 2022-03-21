@@ -23,10 +23,13 @@ pipeline {
                      obj.Meth1()    
                      }  
 
-                  /*def cant = 0
-                  for(cant;cant < params.Cant;cant++) { 
-                   echo params.Cant
-                  }*/
+                 def flag = 0
+   def total = params.Cant
+   int totalC = total.toInteger()
+   println (total)
+   println ("-----")
+                  for(flag = 0;flag < totalC;flag++)
+                   {echo params.Cant}
                   
                 }
             }

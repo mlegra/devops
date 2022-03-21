@@ -6,13 +6,13 @@ def Meth1(){
    println ("\n")
    println ("5+4="+ (5+4))
 
-   def flag = 0
+   /*def flag = 0
    def total = params.Cant
    int totalC = total.toInteger()
    println (total)
    println ("-----")
                   for(flag = 0;flag < totalC;flag++)
-                   {echo params.Cant}
+                   {echo params.Cant}*/
              
             return
         }
