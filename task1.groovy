@@ -12,7 +12,7 @@ def Meth1(){
    println (total)
    println ("-----")
                   for(flag = 0;flag < totalC;flag++)
-                   {echo flag}
+                   {echo $flag}
              
             return
         }
