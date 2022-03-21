@@ -3,8 +3,11 @@ pipeline {
     parameters {
         string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
         string(name: 'Name', defaultValue: 'Lizy', description: 'This is the person?')
-    
-    }
+        }
+        parameters {
+        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+        string(name: 'Name', defaultValue: 'Lizy', description: 'This is the person?')
+        }
     stages {
         stage('Example') {
             steps {
