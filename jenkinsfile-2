@@ -1,3 +1,9 @@
+properties([
+  parameters([
+     booleanParam(name: 'DEPLOY_SHA', defaultValue: false),
+    booleanParam(name: 'OTRO', defaultValue: false)
+  ])
+])
 pipeline {
     agent any
     parameters {
