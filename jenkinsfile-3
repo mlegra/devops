@@ -25,7 +25,8 @@ pipeline {
 			sh '''
 				date
 				ssh michel@192.168.204.129 << ENDSSH
-				/usr/bin/php task.php
+				
+                /usr/bin/php /var/www/html/task.php
 ENDSSH
 '''
 
