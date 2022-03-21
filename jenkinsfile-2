@@ -1,16 +1,11 @@
-properties([
-  parameters([
-     booleanParam(name: 'DEPLOY_SHA', defaultValue: false),
-    booleanParam(name: 'OTRO', defaultValue: false)
-  ])
-])
-pipeline {
+
+node {
     agent any
-    parameters {
+    parameters {[]
         string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
-        //string(name: 'Name', defaultValue: 'Lizy', description: 'This is the person?')
+        string(name: 'Name', defaultValue: 'Lizy', description: 'This is the person?')
     
-    }
+   ] }
     stages {
         stage('Example') {
             steps {
