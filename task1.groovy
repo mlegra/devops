@@ -6,12 +6,12 @@ def Meth1(){
    println ("\n")
    println ("5+4="+ (5+4))
 
-   def cant = 0
+   def flag = 0
    def total = params.Cant
    
    println (total)
    println ("-----")
-                  for(cant;cant < total;cant++)
+                  for(flag;flag < total;flag++)
                    echo params.Cant
              
             return
