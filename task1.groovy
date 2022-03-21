@@ -8,10 +8,10 @@ def Meth1(){
 
    def flag = 0
    def total = params.Cant as integer
-   
+   int totalC = total.toInteger()
    println (total)
    println ("-----")
-                  for(flag = 0;flag < 5;flag++)
+                  for(flag = 0;flag < totalC;flag++)
                    {echo params.Cant}
              
             return
