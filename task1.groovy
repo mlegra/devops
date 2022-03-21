@@ -7,7 +7,7 @@ def Meth1(){
    println ("5+4="+ (5+4))
 
    def cant = 0
-   def total = param.Cant
+   def total = params.Cant
                   for(cant;cant < total;cant++)
                    echo params.Cant
              
