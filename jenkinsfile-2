@@ -14,7 +14,7 @@ pipeline {
                echo "${params.Greeting} ${params.Name}!"
                 // echo "${params.Greeting} World!"
                 params.each { item ->
-        echo "Hello ${item}"
+        echo "Hello ${item}"}
                 script {
                 def obj = load "task1.groovy"
                         obj.Meth1()
