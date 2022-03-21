@@ -13,10 +13,7 @@ pipeline {
             steps {
                echo "${params.Greeting} ${params.Name}!"
                 // echo "${params.Greeting} World!"
-                def cant = 0
-                  for(cant;cant < params.Cant;cant++) { 
-                   echo params.Cant
-                  }
+                
                 script {
                 def obj = load "task1.groovy"
                         obj.Meth1()
@@ -26,7 +23,10 @@ pipeline {
                      obj.Meth1()    
                      }  
 
-                  
+                  def cant = 0
+                  for(cant;cant < params.Cant;cant++) { 
+                   echo params.Cant
+                  }
                   
                 }
             }
