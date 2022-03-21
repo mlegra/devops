@@ -11,7 +11,7 @@ def Meth1(){
    
    println (total)
    println ("-----")
-                  for(flag = 0;flag < total;flag++)
+                  for(flag = 0;flag < 5;flag++)
                    {echo params.Cant}
              
             return
