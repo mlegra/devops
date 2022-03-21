@@ -2,11 +2,12 @@ pipeline {
     agent any
     parameters {
         string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
+        string(name: 'Name', defaultValue: 'Lizy', description: 'This is the person?')
     }
     stages {
         stage('Example') {
             steps {
-                echo "${params.Greeting} World!"
+                echo "${params.Greeting} World!" + echo "${params.Name}!"
                 script {
                 def obj = load "task1.groovy"
                         obj.Meth1()
