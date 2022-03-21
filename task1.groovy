@@ -7,7 +7,7 @@ def Meth1(){
    println ("5+4="+ (5+4))
 
    def flag = 0
-   def total = params.Cant as integer
+   def total = params.Cant
    int totalC = total.toInteger()
    println (total)
    println ("-----")
