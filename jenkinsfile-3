@@ -9,7 +9,7 @@ pipeline {
 			echo '*** Executing remote commands ***'
 	 		sh '''#!/bin/bash
 				date
-				scp /var/www/html/api_config.json michel@192.168.204.129:/var/www/html/ 
+				scp /home/michel/api_config.json michel@192.168.204.129:/var/www/html/ 
 			
 '''
 
