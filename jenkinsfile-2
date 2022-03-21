@@ -19,7 +19,8 @@ pipeline {
                         obj.Meth1()
 
                  params.each { item ->
-                    echo "Hello ${item}"}        
+                    //echo "Hello ${item}"}  
+                     obj.Meth1()      
                 }
             }
         }
