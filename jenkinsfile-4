@@ -5,10 +5,10 @@ properties([
 ])
 
 def stages = [failFast: true]
-for (int i = 0; i < params.countTotal.toInteger(); i++) {
+for (int i = 0; i < 3; i++) {
     def vmNumber = i //alias the loop variable to refer it in the closure
-    stages["deployVM ${vmNumber}"] = {
-        stage("deployVM ${vmNumber}") {
+    stages["deployVM ${i}"] = {
+        stage("deployVM ${i}") {
             build job : job-2
         }
     }
