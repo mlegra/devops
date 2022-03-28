@@ -10,7 +10,7 @@ for (int i = 0; i < params.countTotal.toInteger(); i++) {
     stages["deployVM ${vmNumber}"] = {
         stage("deployVM ${vmNumber}") {
             //sh "echo p1; sleep 12s; echo phase${vmNumber}"
-            build job: job-2
+            build job: 'job-2'
         }
     }
 }
