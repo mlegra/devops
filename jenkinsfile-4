@@ -30,10 +30,10 @@ pipeline {
    int totalC = total.toInteger()
    println (total)
    println ("-----")
-                  for(flag = 0;flag < totalC;flag++)
+                  /*for(flag = 0;flag < totalC;flag++)
                    {
-                      /* echo params.Cant
-                       build job: 'job-2'*/
+                      // echo params.Cant
+                      // build job: 'job-2'
                      node {  stages["deploySC $flag}"] = {
                        stage("deploySC ${flag}") {
                        build job: 'job-2'
@@ -41,7 +41,7 @@ pipeline {
         }
     }
                    
-                   }
+                   }*/
 
                    node {
         parallel stages
