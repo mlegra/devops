@@ -43,9 +43,9 @@ pipeline {
                    
                    }*/
 
-                   node {
+          /*         node {
         parallel stages
-    }
+    }*/
                   
                 }
             }
