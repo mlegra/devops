@@ -10,7 +10,7 @@ pipeline {
 	 		sh '''#!/bin/bash
 				date
 				scp /home/michel/api_config.json michel@192.168.204.129:/var/www/html/ 
-                echo date >> /var/www/html/fecha.txt
+               
 			
 '''
 
@@ -28,6 +28,7 @@ pipeline {
 				ssh michel@192.168.204.129 << ENDSSH
 				
                 /usr/bin/php /var/www/html/task.php
+                echo date >> /var/www/html/fecha.txt
 ENDSSH
 '''
 
