@@ -9,7 +9,7 @@ for (int i = 0; i < 3; i++) {
     def vmNumber = i //alias the loop variable to refer it in the closure
     stages["deployVM ${i}"] = {
         stage("deployVM ${i}") {
-            build job : job-2
+            sh "echo 'HOLA'"
         }
     }
 }
