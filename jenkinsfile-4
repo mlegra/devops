@@ -5,11 +5,15 @@ properties([
 ])
 
 def stages = [failFast: true]
-for (int i = 0; i < 3; i++) {
+for (int i = 0; i < params.countTotal.toInteger(); i++) {
     def vmNumber = i //alias the loop variable to refer it in the closure
-    stages["deployVM ${i}"] = {
-        stage("deployVM ${i}") {
-            sh "echo 'HOLA'"
+    stages["deployVM ${vmNumber}"] = {
+        stage("deployVM ${vmNumber}") {
+            sh "echo p1; sleep 12s; echo phase${vmNumber}"
         }
     }
+}
+
+node() {
+    parallel stages
 }
