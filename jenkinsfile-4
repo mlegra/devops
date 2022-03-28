@@ -10,48 +10,17 @@ pipeline {
        
         }
         
-    stages {
-        stage('Example') {
-            steps {
-              parallel { echo "${params.Greeting} ${params.Name}!"
-                // echo "${params.Greeting} World!"
-                
-                script {
-                def obj = load "task1.groovy"
-                        obj.Meth1()
-
-                 params.each { item ->
-                    //echo "Hello ${item}"}  
-                     obj.Meth1()    
-                     }  
-
-                 def flag = 0
-   def total = params.Cant
-   int totalC = total.toInteger()
-   println (total)
-   println ("-----")
-                  for(flag = 0;flag < totalC;flag++)
+                 for(flag = 0;flag < totalC;flag++)
                    {
                       // echo params.Cant
                       // build job: 'job-2'
-                     //node {  stages["deploySC $flag}"] = {
-                       //stage("deploySC ${flag}")
-                        {
+                     node {  stages["deploySC $flag}"] = {
+                       stage("deploySC ${flag}") {
                        build job: 'job-2'
                        }
         }
     }
                    
-                   }
-
-          /*         node {
-        parallel stages
-    }*/
-                  
-                }
-            }}
-        }
-    
-    }
+ }
     
 }
