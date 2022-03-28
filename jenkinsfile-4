@@ -1,28 +1,15 @@
-pipeline {
-    agent any
-   
-        
-    parameters {
-        string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
-        string(name: 'Name', defaultValue: 'Lizy', description: 'Person?')
-        string(name: 'Cant', defaultValue: '5', description: 'Cantidad?')
-        
-       
-        }
+properties([
+    parameters([
+        string(name: 'countTotal', defaultValue: '3')
+    ])
+])
 
-        def stages = [failFast: true]
-        
-                 for(flag = 0;flag < totalC;flag++)
-                   {
-                      // echo params.Cant
-                      // build job: 'job-2'
-                     node {  stages["deploySC $flag}"] = {
-                       stage("deploySC ${flag}") {
-                       build job: 'job-2'
-                       }
+def stages = [failFast: true]
+for (int i = 0; i < params.countTotal.toInteger(); i++) {
+    def vmNumber = i //alias the loop variable to refer it in the closure
+    stages["deployVM ${vmNumber}"] = {
+        stage("deployVM ${vmNumber}") {
+            sh "echo p1; sleep 12s; echo phase${vmNumber}"
         }
     }
-                   
- }
-    
 }
