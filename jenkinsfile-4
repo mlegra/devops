@@ -9,6 +9,8 @@ pipeline {
         
        
         }
+
+        def stages = [failFast: true]
         
                  for(flag = 0;flag < totalC;flag++)
                    {
