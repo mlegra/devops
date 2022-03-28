@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-               echo "${params.Greeting} ${params.Name}!"
+              parallel ( echo "${params.Greeting} ${params.Name}!"
                 // echo "${params.Greeting} World!"
                 
                 script {
@@ -30,25 +30,26 @@ pipeline {
    int totalC = total.toInteger()
    println (total)
    println ("-----")
-                  /*for(flag = 0;flag < totalC;flag++)
+                  for(flag = 0;flag < totalC;flag++)
                    {
                       // echo params.Cant
                       // build job: 'job-2'
-                     node {  stages["deploySC $flag}"] = {
-                       stage("deploySC ${flag}") {
+                     //node {  stages["deploySC $flag}"] = {
+                       //stage("deploySC ${flag}")
+                        {
                        build job: 'job-2'
                        }
         }
     }
                    
-                   }*/
+                   }
 
           /*         node {
         parallel stages
     }*/
                   
                 }
-            }
+            })
         }
     
     }
