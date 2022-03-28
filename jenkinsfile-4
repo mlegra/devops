@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    node {
-        parallel stages
-    }
+    
     parameters {
         string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
         string(name: 'Name', defaultValue: 'Lizy', description: 'Person?')
@@ -11,7 +9,7 @@ pipeline {
        
         }
         
-    stages {
+   node{ stages {
         stage('Example') {
             steps {
                echo "${params.Greeting} ${params.Name}!"
@@ -48,5 +46,8 @@ pipeline {
         }
     }
 
-    
+   }
+   node {
+        parallel stages
+    } 
 }
