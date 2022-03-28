@@ -9,7 +9,7 @@ for (int i = 0; i < params.countTotal.toInteger(); i++) {
     def vmNumber = i //alias the loop variable to refer it in the closure
     stages["deployVM ${vmNumber}"] = {
         stage("deployVM ${vmNumber}") {
-            sh "echo p1; sleep 12s; echo phase${vmNumber}"
+            build job : job-2
         }
     }
 }
