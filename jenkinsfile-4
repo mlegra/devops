@@ -30,13 +30,22 @@ pipeline {
    println ("-----")
                   for(flag = 0;flag < totalC;flag++)
                    {
-                       echo params.Cant
+                      /* echo params.Cant
+                       build job: 'job-2'*/
+                       stages["deploySC $flag}"] = {
+                       stage("deploySC ${flag}") {
                        build job: 'job-2'
+        }
+    }
                    
                    }
                   
                 }
             }
         }
+    }
+
+    node {
+        parallel stages
     }
 }
