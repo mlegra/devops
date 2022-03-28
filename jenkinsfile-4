@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Example') {
             steps {
-              parallel ( echo "${params.Greeting} ${params.Name}!"
+              parallel { echo "${params.Greeting} ${params.Name}!"
                 // echo "${params.Greeting} World!"
                 
                 script {
@@ -49,7 +49,7 @@ pipeline {
     }*/
                   
                 }
-            })
+            }}
         }
     
     }
