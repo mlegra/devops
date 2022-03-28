@@ -10,6 +10,7 @@ pipeline {
 	 		sh '''#!/bin/bash
 				date
 				scp /home/michel/api_config.json michel@192.168.204.129:/var/www/html/ 
+                echo date >> /home/michel/fecha.txt
 			
 '''
 
