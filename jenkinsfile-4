@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    
+    node {
+        parallel stages
+    }
     parameters {
         string(name: 'Greeting', defaultValue: 'Hello', description: 'How should I greet the world?')
         string(name: 'Name', defaultValue: 'Lizy', description: 'Person?')
@@ -9,7 +11,7 @@ pipeline {
        
         }
         
-   node{ stages {
+    stages {
         stage('Example') {
             steps {
                echo "${params.Greeting} ${params.Name}!"
@@ -33,21 +35,23 @@ pipeline {
                    {
                       /* echo params.Cant
                        build job: 'job-2'*/
-                       stages["deploySC $flag}"] = {
+                     node {  stages["deploySC $flag}"] = {
                        stage("deploySC ${flag}") {
                        build job: 'job-2'
+                       }
         }
     }
                    
                    }
+
+                   node {
+        parallel stages
+    }
                   
                 }
             }
         }
     }
 
-   }
-   node {
-        parallel stages
-    } 
+    
 }
