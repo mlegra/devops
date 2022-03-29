@@ -23,7 +23,7 @@ node() {
 
 pipeline {
     agent any
-    parallel {stages {
+    stages {
         stage('Processing projects') {
             steps {
                 script {
@@ -46,11 +46,10 @@ pipeline {
                     }
 
                     print(projectsBuilds)
-                  //  parallel projectsBuilds;
+                    parallel projectsBuilds;
                 }
             }
         }
-    }
     }
 }
 
