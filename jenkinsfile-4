@@ -37,15 +37,15 @@ pipeline {
                         //labelParameters.add([$class: 'LabelParameterValue', name: 'node', label: 'linux'])
                         //labelParameters.add([$class: "StringParameterValue", name: "PROJECT_NAME", value: currentProject])
 
-                        projectsBuilds[currentProject] = {
-                            stage(String.format('%s execution', currentProject)) {
+                        //projectsBuilds[currentProject] = {
+                           // stage(String.format('%s execution', currentProject)) {
                                 build job: 'job-2'
-                            }
-                        }
+                            //}
+                        //}
                     }
 
-                    print(projectsBuilds)
-                    parallel projectsBuilds;
+                    //print(projectsBuilds)
+                    parallel stages;
                 }
             }
         }
