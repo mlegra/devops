@@ -27,7 +27,7 @@ pipeline {
 				date
 				ssh michel@192.168.204.129 << ENDSSH
 				
-                /usr/bin/php /var/www/html/task.php
+                #/usr/bin/php /var/www/html/task.php
                 echo env.BUILD_NUMBER >> /var/www/html/fecha.txt
 ENDSSH
 '''
