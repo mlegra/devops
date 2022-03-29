@@ -22,6 +22,7 @@ pipeline {
 		stage('Config') {
             steps {
 		script {
+            def buildNumber=env.BUILD_NUMBER
 			echo 'Using remote command over ssh'
 			sh '''
 				date
@@ -29,7 +30,7 @@ pipeline {
 				
                 #/usr/bin/php /var/www/html/task.php
                 echo env.BUILD_NUMBER >> /var/www/html/fecha.txt
-                echo ${env.BUILD_NUMBER}
+                echo $buildNumber
                 date
 ENDSSH
 '''
