@@ -25,8 +25,8 @@ pipeline {
         stage('Copy') {
             steps {
 		for (int i = 0; i < params.countTotal.toInteger(); i++) {
-    def scNumber = i //alias the loop variable to refer it in the closure
-     ${scNumber} : {
+    //def scNumber = i //alias the loop variable to refer it in the closure
+     ${i} : {
         
             build job: 'job-2'
         }
