@@ -58,8 +58,7 @@ pipeline {
         
         string(name: 'Cant', defaultValue: '5', description: 'Cantidad?')
         
-       
-        }
+       }
     stages {
         stage('Processing projects') {
             steps {
@@ -72,6 +71,5 @@ pipeline {
                 }
             }
         }
-    }
-}
+
 	
