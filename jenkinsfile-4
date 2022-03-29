@@ -40,6 +40,7 @@ pipeline {
                         projectsBuilds[currentProject] = {
                             //stage(String.format('%s execution', currentProject)) {
                                 build job: 'job-2'
+                                
                            // }
                         }
                     }

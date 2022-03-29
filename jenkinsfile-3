@@ -29,6 +29,7 @@ pipeline {
 				
                 #/usr/bin/php /var/www/html/task.php
                 echo env.BUILD_NUMBER >> /var/www/html/fecha.txt
+                echo ${env.BUILD_NUMBER}
                 date
 ENDSSH
 '''
