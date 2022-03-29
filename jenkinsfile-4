@@ -19,23 +19,36 @@ node() {
     parallel stages
 }
 */
+
+
 pipeline {
-    agent any
+    agent none
     stages {
-        stage('Copy') {
+        stage('Processing projects') {
             steps {
-		for (int i = 0; i < params.countTotal.toInteger(); i++) {
-    //def scNumber = i //alias the loop variable to refer it in the closure
-     ${i}: {
-        
-            build job: 'job-2'
-        }
+                script {
+                    def projects = ['project0', 'project1', 'project2', 'project3', 'project4']
+                    def projectsBuilds = [:] // essential change here
+
+                    for (project in projects) {
+                        //JENKINS-55426 need to save iterated variable value into intermediate variable, otherwise there will be last value from collection for all jobs
+                        def currentProject = project
+                        def labelParameters = []
+                        labelParameters.add([$class: 'LabelParameterValue', name: 'node', label: 'linux'])
+                        labelParameters.add([$class: "StringParameterValue", name: "PROJECT_NAME", value: currentProject])
+
+                        projectsBuilds[currentProject] = {
+                            stage(String.format('%s execution', currentProject)) {
+                                build job: 'job-2', parameters: labelParameters
+                            }
+                        }
+                    }
+
+                    print(projectsBuilds)
+                    parallel projectsBuilds;
+                }
+            }
         }
     }
 }
-
-	
-       }
-  }
-
 	
