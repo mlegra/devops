@@ -21,7 +21,7 @@ node() {
 */
 
 
-pipeline {
+/*pipeline {
     agent none
     stages {
         stage('Processing projects') {
@@ -51,9 +51,9 @@ pipeline {
             }
         }
     }
-}
+}*/
 
-/*pipeline {
+pipeline {
     agent any
     parameters {
         
@@ -71,6 +71,6 @@ pipeline {
 }
                 }
             }
-        }*/
+        }
 
 	
