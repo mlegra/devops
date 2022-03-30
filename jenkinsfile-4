@@ -21,7 +21,7 @@ node() {
 */
 
 
-pipeline {
+/*pipeline {
     agent any
     stages {
         stage('Processing projects') {
@@ -54,7 +54,7 @@ pipeline {
             }
         }
     }
-}
+}*/
 
 /*pipeline {
     agent any
@@ -76,4 +76,29 @@ pipeline {
             }
         }*/
 
-	
+pipeline {
+    agent any
+    parameters {
+        
+        string(name: 'Cant', defaultValue: '5', description: 'Cantidad?')
+        
+       }
+    stages {
+        stage('Processing projects') {
+            steps {
+                script {
+                  def slurper = new groovy.json.JsonSlurperClassic()
+                  def result = slurper.parseText('{"person":{"name":"Guillaume","age":33,"pets":["dog","cat"]}}')
+
+                  println (result.person.name)
+                  /*assert result.person.age == 33
+                  assert result.person.pets.size() == 2
+                  assert result.person.pets[0] == "dog"
+                  assert result.person.pets[1] == "cat"*/
+ 
+        }
+    }
+}
+                }
+            }
+        }
