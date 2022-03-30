@@ -25,7 +25,7 @@ pipeline {
     agent any
     stages {
         stage('Processing projects') {
-           def job = Jenkins.instance.getItem("job-2") 
+           
             steps {
                 
                 script {
@@ -41,6 +41,7 @@ pipeline {
 
                         projectsBuilds[currentProject] = {
                             stage(String.format('%s execution', currentProject)) {
+                                def job = Jenkins.instance.getItem("job-2") 
                                 job.nextBuildNumber = 130
                                 job.saveNextBuildNumber()
                                 build job: 'job-2'
