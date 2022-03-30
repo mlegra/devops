@@ -39,10 +39,10 @@ pipeline {
 
                         projectsBuilds[currentProject] = {
                             stage(String.format('%s execution', currentProject)) {
-                                //build job: 'job-2'
-                                //$curl
-                                 http://192.168.204.128:8080/job/job-2/build?token=michel
-                                
+                                build job: 'job-2'
+                              /* def url = '$curl http://192.168.204.128:8080/job/job-2/build?token=michel'
+                               url.status;
+                                */
                             }
                         }
                     }
