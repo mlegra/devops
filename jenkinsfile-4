@@ -1,4 +1,4 @@
-/*properties([
+properties([
     parameters([
         string(name: 'countTotal', defaultValue: '3')
     ])
@@ -18,10 +18,10 @@ for (int i = 0; i < params.countTotal.toInteger(); i++) {
 node() {
     parallel stages
 }
-*/
 
 
-pipeline {
+
+/*pipeline {
     agent any
     stages {
         stage('Processing projects') {
@@ -53,7 +53,7 @@ pipeline {
             }
         }
     }
-}
+}*/
 
 /*pipeline {
     agent any
