@@ -25,13 +25,11 @@ pipeline {
     agent any
     stages {
         stage('Processing projects') {
-           
             steps {
-                
                 script {
                     def projects = ['project0', 'project1', 'project2', 'project3', 'project4']
                     def projectsBuilds = [:] // essential change here
-                    
+                    def job = Jenkins.instance.getItem("job-2") 
                     for (project in projects) {
                         //JENKINS-55426 need to save iterated variable value into intermediate variable, otherwise there will be last value from collection for all jobs
                         def currentProject = project
@@ -41,10 +39,8 @@ pipeline {
 
                         projectsBuilds[currentProject] = {
                             stage(String.format('%s execution', currentProject)) {
-                                def job = Jenkins.instance.getItem("job-2") 
-                                job.nextBuildNumber = 130
-                                job.saveNextBuildNumber()
-                                build job: 'job-2'
+                                //build job: 'job-2'
+                                $curl http://127.0.0.1:8080/job/job-2/build?token=My-token
                                 
                             }
                         }
