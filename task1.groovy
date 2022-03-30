@@ -1,3 +1,5 @@
+import groovy.json.JsonOutput
+import groovy.json.JsonSlurper
 
 def Meth1(){
    
@@ -16,4 +18,16 @@ def Meth1(){
              
             return
         }
+def Meth2(){
+ def slurper = new groovy.json.JsonSlurperClassic()
+ def result = slurper.parseText('{"person":{"name":"Guillaume","age":33,"pets":["dog","cat"]}}')
+
+                  println (result.person.name)
+                  /*assert result.person.age == 33
+                  assert result.person.pets.size() == 2
+                  assert result.person.pets[0] == "dog"
+                  assert result.person.pets[1] == "cat"*/
+               
+}
+
 return this
