@@ -18,11 +18,11 @@ def Meth1(){
              
             return
         }
-def Meth2(){
+ def Meth2(){
  def slurper = new groovy.json.JsonSlurperClassic()
- def result = slurper.parseText('{"person":{"name":"Guillaume","age":33,"pets":["dog","cat"]}}')
+ def result = slurper.parseText('[{"person":{"name":"Guillaume","age":33,"pets":["dog","cat"]}},{"person":{"name":"Sofia","age":33,"pets":["dog","cat"]}}]')
 
-                  println (result.person.name)
+                  println (result.person[0].name)
                   /*assert result.person.age == 33
                   assert result.person.pets.size() == 2
                   assert result.person.pets[0] == "dog"
