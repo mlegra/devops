@@ -39,7 +39,7 @@ pipeline {
 
                         projectsBuilds[currentProject] = {
                             stage(String.format('%s execution', currentProject)) {
-                                build job: 'job-2'
+                                //build job: 'job-2'
                               sh '$curl http://localhost:8080/job/job-2/build?token=michel'
                               
                             }
