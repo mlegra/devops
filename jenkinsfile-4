@@ -86,7 +86,7 @@ pipeline {
     stages {
         stage('Processing projects') {
             steps {
-                script {
+                
                   def slurper = new groovy.json.JsonSlurperClassic()
                   def result = slurper.parseText('{"person":{"name":"Guillaume","age":33,"pets":["dog","cat"]}}')
 
@@ -96,7 +96,7 @@ pipeline {
                   assert result.person.pets[0] == "dog"
                   assert result.person.pets[1] == "cat"*/
  
-        }
+        
     }
   }
 }
