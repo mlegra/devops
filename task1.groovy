@@ -23,6 +23,7 @@ def Meth1(){
  def result = slurper.parseText('[{"person":{"name":"Guillaume","age":33,"pets":["dog","cat"]}},{"person":{"name":"Sofia","age":33,"pets":["dog","cat"]}}]')
 
                   println (result.person[0].name)
+                  println (result.person[1].name)
                   /*assert result.person.age == 33
                   assert result.person.pets.size() == 2
                   assert result.person.pets[0] == "dog"
