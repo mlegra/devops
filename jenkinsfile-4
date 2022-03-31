@@ -170,22 +170,17 @@ pipeline {
                 echo 'This stage will be executed first.'
             }
         }
-        stage('Parallel Stage') {
+      stage('Dynamic Stages') {
+            agent {node 'nodename'}
             steps {
-            for (int i = 0; i < params.Cant.toInteger(); ++i) {
-            parallel {
-                stage('Branch A') {
-                    
-                    steps {
-                        //echo "On Branch A"
-                         
-                        echo "Testing the ${i} browser"
-                    }
+                script {
+                    for(int i=0; i < 5; i++) {
+                        stage(list[i]){
+                            echo "Element: $i"
+                        }
                     }
                 }
             }
-            
-            }
-        }
     }
+}
 }
