@@ -156,11 +156,6 @@ node() {
 
 pipeline {
     agent any
-    parameters {
-        
-        string(name: 'Cant', defaultValue: '3', description: 'Cantidad?')
-        
-       }
     options {
         parallelsAlwaysFailFast()
     }
@@ -170,16 +165,45 @@ pipeline {
                 echo 'This stage will be executed first.'
             }
         }
-            stage ('Parallel')
-            {
-             parallel {
-               stage 
-               for (int i = 0; i < params.Cant.toInteger(); ++i) {
-                stage (i) {
-                            build job: 'job-2'
-                } 
-              }
+        stage('Parallel Stage') {
+            when {
+                branch 'master'
             }
-       }
+            parallel {
+                stage('Branch A') {
+                    agent {
+                        label "for-branch-a"
+                    }
+                    steps {
+                        echo "On Branch A"
+                    }
+                }
+                stage('Branch B') {
+                    agent {
+                        label "for-branch-b"
+                    }
+                    steps {
+                        echo "On Branch B"
+                    }
+                }
+                stage('Branch C') {
+                    agent {
+                        label "for-branch-c"
+                    }
+                    stages {
+                        stage('Nested 1') {
+                            steps {
+                                echo "In stage Nested 1 within Branch C"
+                            }
+                        }
+                        stage('Nested 2') {
+                            steps {
+                                echo "In stage Nested 2 within Branch C"
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
