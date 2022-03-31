@@ -27,7 +27,7 @@ pipeline {
     agent any
     stages {
         stage('Processing projects') {
-            //steps {
+            steps {
                 script {
                     def projects = ['project0', 'project1', 'project2', 'project3', 'project4']
                     def projectsBuilds = [:] // essential change here
@@ -40,7 +40,7 @@ pipeline {
                         labelParameters.add([$class: "StringParameterValue", name: "PROJECT_NAME", value: currentProject])
 
                         projectsBuilds[currentProject] = {
-                            steps(String.format('%s execution', currentProject)) {
+                            stage(String.format('%s execution', currentProject)) {
                                 //build job: 'job-2'
                               sh 'curl -u michel:michel http://192.168.204.128:8080/job/job-2/build?token=lizy'
                              // sh '$curl --version'
@@ -53,7 +53,7 @@ pipeline {
                     print(env.WORKSPACE)
                     parallel projectsBuilds;
                 }
-           // }
+            }
         }
     }
 }
