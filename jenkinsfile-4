@@ -40,7 +40,7 @@ pipeline {
                         labelParameters.add([$class: "StringParameterValue", name: "PROJECT_NAME", value: currentProject])
 
                         projectsBuilds[currentProject] = {
-                            stage(String.format('%s execution', currentProject)) {
+                            steps(String.format('%s execution', currentProject)) {
                                 //build job: 'job-2'
                               sh 'curl -u michel:michel http://192.168.204.128:8080/job/job-2/build?token=lizy'
                              // sh '$curl --version'
