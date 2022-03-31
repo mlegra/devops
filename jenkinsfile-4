@@ -175,9 +175,12 @@ pipeline {
                 branch 'master'
             }
             parallel {
+                
                for (int i = 0; i < params.Cant.toInteger(); ++i) {
-                        build job: 'job-2'
-                    }
+                stage (i) {
+                            build job: 'job-2'
+                } 
+              }
             }
         }
     }
