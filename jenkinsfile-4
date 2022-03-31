@@ -183,7 +183,19 @@ pipeline {
                              //build job: 'job-2'
                             // sh 'curl -u michel:michel http://192.168.204.128:8080/job/job-2/build?token=lizy'
                              def obj = load "task1.groovy"
+                             def var = i
                         obj.Meth2()
+                        sh '''
+				def var = i
+				ssh michel@192.168.204.129 << ENDSSH
+				
+               
+                echo env.BUILD_NUMBER >> /var/www/html/$var.txt
+                
+                echo 'HOLA'
+                date
+ENDSSH
+'''
                         }
                     }
                 }
