@@ -176,7 +176,8 @@ pipeline {
                 script {
                     for(int i=0; i < 5; i++) {
                         stage('TEST'){
-                            echo "Element: $i"
+                            //echo "Element: $i"
+                             build job: 'job-2'
                         }
                     }
                 }
