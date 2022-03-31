@@ -170,18 +170,16 @@ pipeline {
                 echo 'This stage will be executed first.'
             }
         }
-        stage('Parallel Stage') {
-            when {
-                branch 'master'
-            }
-            parallel {
-                
+            stage ('Parallel')
+            {
+             parallel {
+               stage 
                for (int i = 0; i < params.Cant.toInteger(); ++i) {
                 stage (i) {
                             build job: 'job-2'
                 } 
               }
             }
-        }
+       }
     }
 }
