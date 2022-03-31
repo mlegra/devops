@@ -28,15 +28,17 @@ pipeline {
         string(name: 'Cant', defaultValue: '3', description: 'Cantidad?')
         
        }
-     def stages = [failFast: true]
+     stages {
+         //def stages = [failFast: true]
      for (int i = 0; i < params.Cant.toInteger(); i++) {
     def scNumber = i //alias the loop variable to refer it in the closure
-    stages["deploySC ${scNumber}"] = {
+    //stages["deploySC ${scNumber}"] = {
         stage("deployVM ${scNumber}") {
            
             build job: 'job-2'
         }
-    }
+   // }
+     }
 }
 
 node() {
