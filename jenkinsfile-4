@@ -23,7 +23,7 @@ node() {
 */
 
 
-pipeline {
+/*pipeline {
     agent any
     stages {
         stage('Processing projects') {
@@ -44,6 +44,40 @@ pipeline {
                                 //build job: 'job-2'
                               sh 'curl -u michel:michel http://192.168.204.128:8080/job/job-2/build?token=lizy'
                              // sh '$curl --version'
+                            }
+                        }
+                    }
+
+                    print(projectsBuilds)
+                    print(env.BUILD_NUMBER)
+                    print(env.WORKSPACE)
+                    parallel projectsBuilds;
+                }
+            }
+        }
+    }
+}*/
+
+pipeline {
+    agent any
+    stages {
+        stage('Processing projects') {
+            steps {
+                script {
+                    def projects = ['project0', 'project1', 'project2', 'project3', 'project4']
+                    def projectsBuilds = [:] // essential change here
+                    
+                    for (project in projects) {
+                        //JENKINS-55426 need to save iterated variable value into intermediate variable, otherwise there will be last value from collection for all jobs
+                        def currentProject = project
+                        def labelParameters = []
+                       // labelParameters.add([$class: 'LabelParameterValue', name: 'node', label: 'agent2'])
+                        labelParameters.add([$class: "StringParameterValue", name: "PROJECT_NAME", value: currentProject])
+
+                        projectsBuilds[currentProject] = {
+                            
+                              sh 'curl -u michel:michel http://192.168.204.128:8080/job/job-2/build?token=lizy'
+                            
                             }
                         }
                     }
