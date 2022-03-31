@@ -28,7 +28,7 @@ pipeline {
     stages {
         stage('Processing projects') {
             //steps {
-                //script {
+                script {
                     def projects = ['project0', 'project1', 'project2', 'project3', 'project4']
                     def projectsBuilds = [:] // essential change here
                     
@@ -52,7 +52,7 @@ pipeline {
                     print(env.BUILD_NUMBER)
                     print(env.WORKSPACE)
                     parallel projectsBuilds;
-                //}
+                }
            // }
         }
     }
