@@ -88,11 +88,11 @@ node() {
     }*/
 
 
-pipeline {
+/*pipeline {
     agent any
     parameters {
         
-        string(name: 'Cant', defaultValue: '3', description: 'Cantidad?')
+        string(name: 'Cant', defaultValue: '5', description: 'Cantidad?')
         
        }
     stages {
@@ -100,13 +100,13 @@ pipeline {
             steps {
                 script {
                   for (int i = 0; i < params.Cant.toInteger(); i++) {
-                  build job: 'job-2', parameters [string(name: 'Cant', value: '3')]
+                  build job: 'job-2'
         }
     }
 }
                 }
             }
-        }
+        }*/
 
 /*pipeline {
     agent any
@@ -130,3 +130,55 @@ pipeline {
 }
 }
 }  */     
+
+/*pipeline {
+    agent any
+     parameters {
+        
+        string(name: 'Cant', defaultValue: '3', description: 'Cantidad?')
+        
+       }
+    stages {
+        stage('Example') {
+            steps {
+                echo 'Hello World'
+
+                script {
+                    def browsers = ['chrome', 'firefox']
+                    for (int i = 0; i < params.Cant.toInteger(); ++i) {
+                        echo "Testing the ${browsers[i]} browser"
+                    }
+                }
+            }
+        }
+    }
+}*/
+
+pipeline {
+    agent any
+    parameters {
+        
+        string(name: 'Cant', defaultValue: '3', description: 'Cantidad?')
+        
+       }
+    options {
+        parallelsAlwaysFailFast()
+    }
+    stages {
+        stage('Non-Parallel Stage') {
+            steps {
+                echo 'This stage will be executed first.'
+            }
+        }
+        stage('Parallel Stage') {
+            when {
+                branch 'master'
+            }
+            parallel {
+               for (int i = 0; i < params.Cant.toInteger(); ++i) {
+                        build job: 'job-2'
+                    }
+            }
+        }
+    }
+}

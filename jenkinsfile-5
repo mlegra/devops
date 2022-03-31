@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    options {
+        parallelsAlwaysFailFast()
+    }
+    stages {
+        stage('Non-Parallel Stage') {
+            steps {
+                echo 'This stage will be executed first.'
+            }
+        }
+        stage('Parallel Stage') {
+            when {
+                branch 'master'
+            }
+            parallel {
+               for (int i = 0; i < params.Cant.toInteger(); ++i) {
+                        build job: 'job-2'
+                    }
+            }
+        }
+    }
+}
