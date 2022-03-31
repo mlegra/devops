@@ -1,6 +1,6 @@
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
-properties([
+/*properties([
     parameters([
         string(name: 'Cant', defaultValue: '3', description: 'Cantidad?')
         ])
@@ -20,7 +20,7 @@ for (int i = 0; i < params.Cant.toInteger(); i++) {
 
 node() {
     parallel stages
-}
+}*/
 
 
 
@@ -88,11 +88,11 @@ node() {
     }*/
 
 
-/*pipeline {
+pipeline {
     agent any
     parameters {
         
-        string(name: 'Cant', defaultValue: '5', description: 'Cantidad?')
+        string(name: 'Cant', defaultValue: '3', description: 'Cantidad?')
         
        }
     stages {
@@ -100,13 +100,13 @@ node() {
             steps {
                 script {
                   for (int i = 0; i < params.Cant.toInteger(); i++) {
-                  build job: 'job-2'
+                  build job: 'job-2', parameters [string(name: 'Cant', value: '3')]
         }
     }
 }
                 }
             }
-        }*/
+        }
 
 /*pipeline {
     agent any
