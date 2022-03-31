@@ -172,12 +172,13 @@ pipeline {
         }
         stage('Parallel Stage') {
             
+            for (int i = 0; i < params.Cant.toInteger(); ++i) {
             parallel {
                 stage('Branch A') {
                     
                     steps {
                         //echo "On Branch A"
-                         for (int i = 0; i < params.Cant.toInteger(); ++i) {
+                         
                         echo "Testing the ${i} browser"
                     }
                     }
