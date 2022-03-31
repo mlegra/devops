@@ -170,9 +170,10 @@ pipeline {
                 echo 'This stage will be executed first.'
             }
         }
+      parallel {
       stage('Dynamic Stages') {
             //agent {node 'nodename'}
-           parallel { 
+            
             steps {
                 script {
                     for(int i=0; i < 5; i++) {
@@ -184,7 +185,7 @@ pipeline {
                     }
                 }
             }
-           }
+      }
     }
 }
 }
