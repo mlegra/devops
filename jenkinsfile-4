@@ -29,7 +29,7 @@ pipeline {
         
        }
      stages {
-         //def stages = [failFast: true]
+      stage {   //def stages = [failFast: true]
      for (int i = 0; i < params.Cant.toInteger(); i++) {
     def scNumber = i //alias the loop variable to refer it in the closure
     //stages["deploySC ${scNumber}"] = {
@@ -39,6 +39,7 @@ pipeline {
         }
    // }
      }
+ } 
 }
 
 node() {
