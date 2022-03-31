@@ -176,7 +176,10 @@ pipeline {
                 stage('Branch A') {
                     
                     steps {
-                        echo "On Branch A"
+                        //echo "On Branch A"
+                         for (int i = 0; i < params.Cant.toInteger(); ++i) {
+                        echo "Testing the ${i} browser"
+                    }
                     }
                 }
         
