@@ -1,13 +1,13 @@
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
-/*properties([
+properties([
     parameters([
-        string(name: 'countTotal', defaultValue: '3')
+        string(name: 'Cant', defaultValue: '3', description: 'Cantidad?')
     ])
 ])
 
 def stages = [failFast: true]
-for (int i = 0; i < params.countTotal.toInteger(); i++) {
+for (int i = 0; i < params.Cant.toInteger(); i++) {
     def scNumber = i //alias the loop variable to refer it in the closure
     stages["deploySC ${scNumber}"] = {
         stage("deployVM ${scNumber}") {
@@ -20,7 +20,7 @@ for (int i = 0; i < params.countTotal.toInteger(); i++) {
 node() {
     parallel stages
 }
-*/
+
 
 
 /*pipeline {
@@ -58,7 +58,7 @@ node() {
     }
 }*/
 
-pipeline {
+/*pipeline {
     agent any
      parameters {
         
@@ -83,7 +83,7 @@ pipeline {
                 }
             }
         }
-    }
+    }*/
 
 
 /*pipeline {
