@@ -1,15 +1,15 @@
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
 properties([
-    parameters([
+    /*parameters([
         string(name: 'Cant', defaultValue: '3', description: 'Cantidad?')
         string(name: 'Nombre', defaultValue: '3', description: 'Cantidad?')
         string(name: 'Edad', defaultValue: '3', description: 'Cantidad?')
-    ])
+    ])*/
 ])
 
 def stages = [failFast: true]
-for (int i = 0; i < params.Cant.toInteger(); i++) {
+for (int i = 0; i < params.Cantidad.toInteger(); i++) {
     def scNumber = i //alias the loop variable to refer it in the closure
     stages["deploySC ${scNumber}"] = {
         stage("deployVM ${scNumber}") {
