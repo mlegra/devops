@@ -80,7 +80,7 @@ pipeline {
                       // labelParameters.add([$class: 'LabelParameterValue', name: 'node', label: 'agent2'])
                       // labelParameters.add([$class: "StringParameterValue", name: "PROJECT_NAME", value: currentProject])
 
-                        projectsBuilds[currentProject] = {
+                       // projectsBuilds[currentProject] = {
                               
                               sh 'curl -u michel:michel http://192.168.204.128:8080/job/job-2/build?token=lizy'
                             
