@@ -179,6 +179,7 @@ pipeline {
                 script {
                     for(int i=0; i < 5; i++) {
                         stage('TEST'){
+                            def var = i
                             //echo "Element: $i"
                              //build job: 'job-2'
                             // sh 'curl -u michel:michel http://192.168.204.128:8080/job/job-2/build?token=lizy'
@@ -186,7 +187,7 @@ pipeline {
                              def var = i
                         obj.Meth2()
                         sh '''
-				def var = i
+				
 				ssh michel@192.168.204.129 << ENDSSH
 				
                
