@@ -60,6 +60,11 @@ node() {
 
 pipeline {
     agent any
+     parameters {
+        
+        string(name: 'Cant', defaultValue: '3', description: 'Cantidad?')
+        
+       }
     stages {
         stage('Processing projects') {
             steps {
@@ -68,7 +73,7 @@ pipeline {
                     def projectsBuilds = [:] // essential change here
                     
                    // for (project in projects) {
-                       for (i=0; i<3; i++) {
+                       for (i=0; i<Cant.toInteger(); i++) {
                         //JENKINS-55426 need to save iterated variable value into intermediate variable, otherwise there will be last value from collection for all jobs
                        // def currentProject = project
                        // def labelParameters = []
