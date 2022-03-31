@@ -174,12 +174,7 @@ pipeline {
                         echo "On Branch A"
                     }
                 }
-                stage('Branch B') {
-                   
-                    steps {
-                        echo "On Branch B"
-                    }
-                }
+        
             
             }
         }
