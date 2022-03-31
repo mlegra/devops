@@ -68,7 +68,7 @@ pipeline {
                     def projectsBuilds = [:] // essential change here
                     
                    // for (project in projects) {
-                       for (i=0; i<3; i++)
+                       for (i=0; i<3; i++) {
                         //JENKINS-55426 need to save iterated variable value into intermediate variable, otherwise there will be last value from collection for all jobs
                        // def currentProject = project
                        // def labelParameters = []
