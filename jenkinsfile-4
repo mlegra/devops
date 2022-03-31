@@ -82,7 +82,7 @@ pipeline {
                         }
                     }
 
-                    print(projectsBuilds)
+                   // print(projectsBuilds)
                     print(env.BUILD_NUMBER)
                     print(env.WORKSPACE)
                    // parallel projectsBuilds;
