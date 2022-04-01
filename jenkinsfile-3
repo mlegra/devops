@@ -59,6 +59,23 @@ pipeline {
                 sh 'echo ${Cant}'
             }
         }
+
+        stage ('Test')
+        steps {
+
+            script {
+                sh '''
+				date
+				ssh michel@192.168.204.129 << ENDSSH
+				
+                #/usr/bin/php /var/www/html/task.php
+                echo ${Cant} >> /var/www/html/fecha.txt
+                
+                
+ENDSSH
+'''
+            }
+        }
     }
 }
 
