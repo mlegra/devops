@@ -13,7 +13,7 @@ for (int i = 0; i < params.Cant.toInteger(); i++) {
     stages["deploySC ${scNumber}"] = {
         stage("deployVM ${scNumber}") {
            
-            build job: 'job-2', parameters: [string(name: 'Cant', value: String.valueOf(PARAMETER01))]
+            build job: 'job-2', parameters: [string(name: 'Cant', value: String.valueOf(Cant))]
             //build job: 'ANOTHER_JOB_NAME', wait: false, parameters: [string(name: 'HELLO', value: String.valueOf(PARAMETER01))]
         }
     }
