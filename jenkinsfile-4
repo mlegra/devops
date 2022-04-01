@@ -73,7 +73,7 @@ pipeline {
         stage('Processing projects') {
             steps {
                 script {
-                    def projects = ['project0', 'project1', 'project2', 'project3', 'project4']
+                    //def projects = ['project0', 'project1', 'project2', 'project3', 'project4']
                     def projectsBuilds = [:] // essential change here
                     
                     for (i=0; i < params.Cant.toInteger(); i++) {
@@ -92,10 +92,7 @@ pipeline {
                         }
                     }
 
-                    print(projectsBuilds)
-                    print(env.BUILD_NUMBER)
-                    print(env.WORKSPACE)
-                    parallel projectsBuilds;
+                   parallel projectsBuilds;
                 }
             }
         }
