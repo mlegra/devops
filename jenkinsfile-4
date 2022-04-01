@@ -73,10 +73,10 @@ pipeline {
                     
                     for (i=0; i < params.Cant.toInteger(); i++) {
                         //JENKINS-55426 need to save iterated variable value into intermediate variable, otherwise there will be last value from collection for all jobs
-                        def currentProject = project
+                       // def currentProject = project
                         def labelParameters = []
                        // labelParameters.add([$class: 'LabelParameterValue', name: 'node', label: 'agent2'])
-                        labelParameters.add([$class: "StringParameterValue", name: "PROJECT_NAME", value: currentProject])
+                      //  labelParameters.add([$class: "StringParameterValue", name: "PROJECT_NAME", value: currentProject])
 
                         projectsBuilds[i] = {
                             stage(String.format('%s execution', i)) {
