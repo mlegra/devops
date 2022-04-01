@@ -185,7 +185,7 @@ pipeline {
                             // sh 'curl -u michel:michel http://192.168.204.128:8080/job/job-2/build?token=lizy'
                              def obj = load "task1.groovy"
                              def var = i
-                             echo var
+                            // echo var
                         obj.Meth2()
                         sh '''
 				
