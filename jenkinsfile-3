@@ -52,7 +52,7 @@ pipeline {
     parameters {
         string(defaultValue: "", description: 'K', name: 'Cant')
     }
-
+    def var = params.Cant
     stages {
         stage('PrintParameter'){
             steps{
@@ -71,7 +71,7 @@ pipeline {
 				
                 #/usr/bin/php /var/www/html/task.php
                 echo ${Cant} >> /var/www/html/fecha.txt
-                
+                echo '${var}'
                 
 ENDSSH
 '''
