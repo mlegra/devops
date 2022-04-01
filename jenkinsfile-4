@@ -194,9 +194,11 @@ pipeline {
                 echo env.BUILD_NUMBER >> /var/www/html/$var.txt
                 
                 echo 'HOLA'
+                
                 date
 ENDSSH
 '''
+echo $var
                         }
                     }
                 }
