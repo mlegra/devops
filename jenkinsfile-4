@@ -64,6 +64,11 @@ node() {
 
 pipeline {
     agent any
+    parameters {
+        
+        string(name: 'Cant', defaultValue: '3', description: 'Cantidad?')
+        
+       }
     stages {
         stage('Processing projects') {
             steps {
