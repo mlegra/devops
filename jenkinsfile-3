@@ -1,4 +1,4 @@
-pipeline {
+/*pipeline {
     agent any
     stages {
         stage('Copy') {
@@ -40,6 +40,23 @@ ENDSSH
 
 
                 }
+            }
+        }
+    }
+}
+*/
+
+pipeline {
+    agent any
+
+    parameters {
+        string(defaultValue: "", description: 'K', name: 'Cant')
+    }
+
+    stages {
+        stage('PrintParameter'){
+            steps{
+                sh 'echo ${Cant}'
             }
         }
     }
