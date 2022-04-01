@@ -85,7 +85,7 @@ pipeline {
 
                         projectsBuilds[i] = {
                             stage(String.format('%s execution', i)) {
-                                build job: 'job-2'
+                                build job: 'job-2', parameters: [string(name: 'Cant', value: String.valueOf(Cant))]
                               //sh 'curl -u michel:michel http://192.168.204.128:8080/job/job-2/build?token=lizy'
                              // sh '$curl --version'
                             }
